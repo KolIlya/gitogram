@@ -1,0 +1,41 @@
+.c-statistic {
+    display: inline-flex;
+    align-items: center;
+    color: #24292E;
+    border: 1px solid rgba(27, 31, 35, 0.15);
+    border-radius: 0.3rem;
+
+    .forks, .stars, .forks__content-wrapper, .stars__content-wrapper {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+    }
+
+    .slot {
+        padding: 0.3rem 0.75rem;
+
+        &__icon {
+            width: 1rem;
+            height: 1rem;
+            margin-right: 0.25rem;
+            color: #586069;
+        }
+    }
+
+    .stars {
+        &__content-wrapper {
+            background-color: rgba(250, 251, 252, 1);
+            border-right: 1px solid rgba(27, 31, 35, 0.15);
+            cursor: pointer;
+        }
+    }
+
+    .forks {
+        &__content-wrapper {
+            background-color: rgba(250, 251, 252, 1);
+            border-right: 1px solid rgba(27, 31, 35, 0.15);
+            border-left: 1px solid rgba(27, 31, 35, 0.15);
+            cursor: pointer;
+        }
+    }
+}
