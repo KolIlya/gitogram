@@ -1,5 +1,5 @@
 import { makeRequest } from '../requests'
-import env from '../../../../env'
+import env from '../../../env.js'
 
 export const getAccessTokenByPersonalCode = (code) => makeRequest({
   url: 'https://webdev-api.loftschool.com/github',

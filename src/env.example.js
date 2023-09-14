@@ -1,4 +1,4 @@
 export default {
-    clientId: "",
-    clientSecret: ""
- }
+  clientId: '',
+  clientSecret: ''
+}
