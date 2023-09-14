@@ -16,8 +16,7 @@ export default {
         const { data } = await api.user.getUserRepos()
         commit('SET_REPOS', data)
       } catch (e) {
-        console.log(e)
-        throw e
+        alert(e.message)
       }
     }
   }

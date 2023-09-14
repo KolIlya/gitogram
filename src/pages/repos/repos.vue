@@ -44,7 +44,7 @@ export default {
       try {
         dispatch('repos/fetchRepos')
       } catch (e) {
-        console.log(e)
+        alert(e.message)
       } finally {
         loading.value = false
       }

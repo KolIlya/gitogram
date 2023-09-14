@@ -48,8 +48,7 @@ export default {
         const { data } = await api.trendings.getTrendings()
         commit('SET_TRENDINGS', { starred: rootState.starred.data, trendings: data.items })
       } catch (e) {
-        console.log(e)
-        throw e
+        alert(e.message)
       }
     },
     async fetchReadme ({ commit, getters }, { id, owner, repo }) {
@@ -59,8 +58,7 @@ export default {
         const { data } = await api.readme.getReadme({ owner, repo })
         commit('SET_README', { id, content: data })
       } catch (e) {
-        console.log(e)
-        throw e
+        alert(e.message)
       }
     },
     async starRepo ({ commit, getters }, id) {
@@ -70,8 +68,7 @@ export default {
         await api.starred.starRepo({ owner: owner.login, repo })
         commit('SET_FOLLOWING', { id, loading: false, following: true })
       } catch (e) {
-        console.log(e)
-        throw e
+        alert(e.message)
       }
     },
     async unStarRepo ({ commit, getters }, id) {
@@ -81,8 +78,7 @@ export default {
         await api.starred.unStarRepo({ owner: owner.login, repo })
         commit('SET_FOLLOWING', { id, loading: false, following: false })
       } catch (e) {
-        console.log(e)
-        throw e
+        alert(e.message)
       }
     }
   }

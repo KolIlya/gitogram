@@ -54,7 +54,7 @@ export default {
       const { data } = await api.trendings.getTrendings()
       this.items = data.items
     } catch (error) {
-      console.log(error)
+      alert(error.message)
     }
   },
   data () {
@@ -75,7 +75,7 @@ export default {
         const data = await response.json()
         console.log(data)
       } catch (e) {
-        console.log(e)
+        alert(e.message)
       }
     },
     getFeedData (item) {

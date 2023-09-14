@@ -18,7 +18,7 @@ export default {
         const { data } = await api.user.getUserData()
         commit('SET_USERDATA', data)
       } catch (e) {
-        console.log(e)
+        alert(e.message)
       }
     }
   }

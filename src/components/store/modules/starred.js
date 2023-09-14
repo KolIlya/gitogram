@@ -45,8 +45,7 @@ export default {
         const { data } = await api.starred.getStarredRepos({ limit: payload?.limit })
         commit('SET_STARRED', data)
       } catch (e) {
-        console.log(e)
-        throw e
+        alert(e.message)
       }
     },
     async fetchIssuesForRepo ({ commit }, { id, owner, repo }) {
@@ -74,8 +73,7 @@ export default {
             error: e
           }
         })
-        console.log(e)
-        throw e
+        alert(e.message)
       }
     },
     async starRepo ({ commit, getters }, id) {
@@ -85,8 +83,7 @@ export default {
         await api.starred.starRepo({ owner: owner.login, repo })
         commit('SET_FOLLOWING', { id, loading: false, following: true })
       } catch (e) {
-        console.log(e)
-        throw e
+        alert(e.message)
       }
     },
     async unStarRepo ({ commit, getters }, id) {
@@ -96,8 +93,7 @@ export default {
         await api.starred.unStarRepo({ owner: owner.login, repo })
         commit('SET_FOLLOWING', { id, loading: false, following: false })
       } catch (e) {
-        console.log(e)
-        throw e
+        alert(e.message)
       }
     }
   }

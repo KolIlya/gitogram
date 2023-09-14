@@ -65,7 +65,7 @@ export default {
       const { data } = await api.trendings.getTrendings()
       this.items = data.items
     } catch (error) {
-      console.log(error)
+      alert(error.message)
     }
   },
   mounted () {

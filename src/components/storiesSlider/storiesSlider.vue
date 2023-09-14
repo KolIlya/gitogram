@@ -76,8 +76,7 @@ export default {
       try {
         await this.fetchReadmeForActiveSlide()
       } catch (e) {
-        console.log(e)
-        throw e
+        alert(e.message)
       } finally {
         this.loading = false
         this.btnsShown = true

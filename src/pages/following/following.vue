@@ -60,7 +60,7 @@ export default {
       try {
         dispatch('starred/fetchStarred')
       } catch (e) {
-        console.log(e)
+        alert(e.message)
       } finally {
         loading.value = false
       }

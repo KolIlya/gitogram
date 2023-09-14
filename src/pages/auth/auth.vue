@@ -58,7 +58,7 @@ export default {
         localStorage.setItem('token', token)
         this.$router.replace({ name: 'feeds' })
       } catch (e) {
-        console.log(e)
+        alert(e.message)
       }
     }
   }
