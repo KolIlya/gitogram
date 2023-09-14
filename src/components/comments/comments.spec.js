@@ -1,5 +1,5 @@
 import { mount } from '@vue/test-utils'
-import comments from '../../src/components/comments/comments.vue'
+import comments from './comments.vue'
 
 describe('comments component', () => {
   it('выполняет emit события loadContent', async () => {
@@ -31,7 +31,7 @@ describe('comments component', () => {
     expect(wrapper.findAll('.comments-item').length).toBe(6)
   })
 
-  it('не вызывает событие contentLoaded если внутри есть список issues', async () => {
+  it('не вызывает событие contentLoaded если внутри есть список comments', async () => {
     const issue = {
       title: 'test-title',
       user: {

@@ -1,12 +1,12 @@
 <template>
   <div class="reviews">
     <div class="toggler">
-      <toggler @onToggle="toggle" />
+      <toggler @onToggle="toggle" :isShow="showingToggle"/>
     </div>
     <comment-placeholder v-if="loading" />
     <div
       class="comments"
-      v-if="issues?.length && shown"
+      v-if="showingToggle"
     >
       <ul class="comments-list">
         <li class="comments-item" v-for="issue in issues" :key="issue.id">
@@ -22,6 +22,8 @@
 import toggler from '../../components/toggler/toggler.vue'
 import Comment from '../../components/comment/comment.vue'
 import commentPlaceholder from '../commentPlaceholder/commentPlaceholder.vue'
+import { ref } from 'vue'
+
 export default {
   components: {
     toggler,
@@ -29,11 +31,6 @@ export default {
     Comment
   },
   emits: ['loadContent'],
-  data () {
-    return {
-      shown: false
-    }
-  },
   props: {
     loading: {
       type: Boolean
@@ -46,13 +43,19 @@ export default {
       default: () => []
     }
   },
-  methods: {
-    toggle (isOpened) {
-      this.shown = isOpened
+  setup (props, { emit }) {
+    const showingToggle = ref(false)
 
-      if (isOpened && this.issues.length === 0) {
-        this.$emit('loadContent')
+    const toggle = () => {
+      showingToggle.value = !showingToggle.value
+
+      if (showingToggle.value && props.issues.length === 0) {
+        emit('loadContent')
       }
+    }
+    return {
+      showingToggle,
+      toggle
     }
   },
   computed: {

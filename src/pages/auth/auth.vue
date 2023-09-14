@@ -17,9 +17,6 @@
           <span class="logo-icon"><icon name="gitLogo" /></span>
         </Xbutton>
       </div>
-      <div class="auth-back">
-        <icon name="authLogo" />
-      </div>
     </div>
   </div>
 </template>
