@@ -17,8 +17,8 @@
 </template>
 
 <script>
-import { mapActions } from 'vuex'
 import Icon from '../../icons/icon.vue'
+
 export default {
   components: {
     Icon
@@ -32,12 +32,8 @@ export default {
     }
   },
   methods: {
-    ...mapActions({
-      logoutAction: 'auth/logout'
-    }),
     logout () {
       localStorage.removeItem('token')
-      this.$router.replace({ name: 'auth' })
       window.location.reload()
     },
     goToHome () {

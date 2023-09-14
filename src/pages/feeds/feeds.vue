@@ -64,8 +64,19 @@ export default {
     }
   },
   methods: {
-    handlePress () {
-      console.log(1)
+    async getUser () {
+      const token = localStorage.getItem('token')
+      try {
+        const response = await fetch('https://api.github.com/user', {
+          headers: {
+            Authorization: `token ${token}`
+          }
+        })
+        const data = await response.json()
+        console.log(data)
+      } catch (e) {
+        console.log(e)
+      }
     },
     getFeedData (item) {
       return {
